@@ -1,6 +1,7 @@
 new_cluster: &new_cluster
   new_cluster:
     policy_id: E05E27B13F0003A0
+    num_workers: 1
     autoscale.max_workers: 3
     spark_version: 13.3.x-cpu-ml-scala2.12
     node_type_id: i3.xlarge
