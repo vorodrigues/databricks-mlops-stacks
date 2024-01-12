@@ -1,0 +1,34 @@
+# This GitHub workflow deploys Bundle assets (ML asset config and more)
+# defined under databricks_mlops_stacks/assets/*
+# and databricks_mlops_stacks/databricks.yml with staging deployment target configs,
+# when PRs are merged into the default branch
+name: Bundle Deployment for databricks-mlops-stacks Staging
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./databricks_mlops_stacks
+
+env:
+  DATABRICKS_TOKEN: ${{ secrets.STAGING_WORKSPACE_TOKEN }}
+
+jobs:
+  staging:
+    concurrency: databricks-mlops-stacks-staging-bundle-job
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: databricks/setup-cli@v0.211.0
+      - name: Validate Bundle For Staging
+        id: validate
+        run: |
+          databricks bundle validate -t staging
+      - name: Deploy Bundle to Staging
+        id: deploy
+        run: |
+          databricks bundle deploy -t staging

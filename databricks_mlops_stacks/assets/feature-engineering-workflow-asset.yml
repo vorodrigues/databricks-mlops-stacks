@@ -1,8 +1,13 @@
 new_cluster: &new_cluster
   new_cluster:
-    num_workers: 3
-    spark_version: 13.3.x-cpu-ml-scala2.12
+    policy_id: E05E27B13F0003A0
+    num_workers: 1
+    autoscale:
+      min_workers: 1
+      max_workers: 3
     node_type_id: i3.xlarge
+    spark_version: 13.3.x-cpu-ml-scala2.12
+    runtime_engine: STANDARD
     custom_tags:
       clusterSource: mlops-stack/0.2
 
@@ -30,7 +35,7 @@ resources:
               input_start_date: ""
               input_end_date: ""
               timestamp_column: tpep_pickup_datetime
-              output_table_name: ${bundle.target}.vr_mlops_stacks.trip_pickup_features
+              output_table_name: ${var.catalog_name}.${var.schema_prefix}_${bundle.target}.trip_pickup_features
               features_transform_module: pickup_features
               primary_keys: zip
               # git source information of current ML asset deployment. It will be persisted as part of the workflow run
@@ -46,7 +51,7 @@ resources:
               input_start_date: ""
               input_end_date: ""
               timestamp_column: tpep_dropoff_datetime
-              output_table_name: ${bundle.target}.vr_mlops_stacks.trip_dropoff_features
+              output_table_name: ${var.catalog_name}.${var.schema_prefix}_${bundle.target}.trip_dropoff_features
               features_transform_module: dropoff_features
               primary_keys: zip
               # git source information of current ML asset deployment. It will be persisted as part of the workflow run

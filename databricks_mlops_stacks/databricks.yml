@@ -9,6 +9,10 @@ variables:
   model_name:
     description: Model name for the model training.
     default: databricks-mlops-stacks-model
+  catalog_name: 
+    default: vr_mlops_stacks
+  schema_prefix: 
+    default: taxi
 
 include:
   # Assets folder contains ML artifact assets for the ml project that defines model and experiment
@@ -26,13 +30,13 @@ targets:
 
   staging:
     workspace:
-      host: https://e2-demo-field-eng.cloud.databricks.com
+      host: https://e2-demo-west.cloud.databricks.com/
 
   prod:
     workspace:
-      host: https://e2-demo-field-eng.cloud.databricks.com
+      host: https://e2-demo-west.cloud.databricks.com/
 
   test:
     workspace:
-      host: https://e2-demo-field-eng.cloud.databricks.com
+      host: https://e2-demo-west.cloud.databricks.com/
 

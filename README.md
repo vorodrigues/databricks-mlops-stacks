@@ -36,38 +36,26 @@
     git config user.name <user.name>
     git config user.email <user.email>
     git add *
+    git add .github/*
     git commit -m init
     git push origin main
+    git checkout -b dev
     ```
-
-
-
-
-
-
-
-    - [Create PATs for dev, staging and prod Databricks Workspaces](https://docs.databricks.com/dev-tools/api/latest/authentication.html)
-    - [Configure authentication credentials](https://docs.databricks.com/dev-tools/cli/index.html#connection-profiles)
-    ```
-    databricks configure --token --profile <dev-ws|staging-ws|prod-ws>
-    ```
-
-
-
-    - [Create a PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-1. Configure Databricks secrets for GitHub Actions
-    - Within the GitHub project navigate to Secrets under the project settings
+    - [Generate Databricks PATs for STG and PRD environments](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+    - Create GitHub repository secrets
+        - STAGING_WORKSPACE_TOKEN
+        - PROD_WORKSPACE_TOKEN
+    - Within the GitHub repository navigate to Settings > Secrets and variables > Actions
     - To run the GitHub actions workflows we require the following GitHub actions secrets:
-        - `DATABRICKS_STAGING_HOST`
-            - URL of Databricks staging workspace
-        - `DATABRICKS_STAGING_TOKEN`
-            - Databricks access token for staging workspace
-        - `DATABRICKS_PROD_HOST`
-            - URL of Databricks production workspace
-        - `DATABRICKS_PROD_TOKEN`
-            - Databricks access token for production workspace
-        - `GH_TOKEN`
-            - GitHub personal access token
+        - `STAGING_WORKSPACE_TOKEN`
+        - `PROD_WORKSPACE_TOKEN`
+
+
+
+
+
+
+
 1. Configure DBX
     - The project is designed to use 3 different profiles: dev, staging and prod. 
       These profiles are set in `.dbx/project.json`.
