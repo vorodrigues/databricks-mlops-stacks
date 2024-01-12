@@ -5,9 +5,7 @@ new_cluster: &new_cluster
     autoscale:
       min_workers: 1
       max_workers: 3
-    #node_type_id: i3.xlarge
-    driver_instance_pool_id: 0505-161036-forte2-pool-ieq69lwi
-    instance_pool_id: 0505-161036-forte2-pool-ieq69lwi
+    node_type_id: i3.xlarge
     spark_version: 13.3.x-cpu-ml-scala2.12
     runtime_engine: STANDARD
     custom_tags:
