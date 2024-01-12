@@ -9,6 +9,8 @@ variables:
   model_name:
     description: Model name for the model training.
     default: databricks-mlops-stacks-model
+  catalog_name: vr_mlops_stacks
+  schema_prefix: taxi
 
 include:
   # Assets folder contains ML artifact assets for the ml project that defines model and experiment

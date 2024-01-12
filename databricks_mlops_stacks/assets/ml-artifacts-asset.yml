@@ -48,8 +48,8 @@ resources:
   registered_models:
       model:
         name: ${var.model_name}
-        catalog_name: vr_mlops_stacks
-        schema_name: taxi_${bundle.target}
+        catalog_name: ${var.catalog_name}
+        schema_name: ${var.schema_prefix}_${bundle.target}
         <<: *grants
         depends_on:
           - resources.jobs.model_training_job.id
