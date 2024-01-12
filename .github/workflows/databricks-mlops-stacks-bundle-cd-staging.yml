@@ -4,11 +4,11 @@
 # when PRs are merged into the default branch
 name: Bundle Deployment for databricks-mlops-stacks Staging
 
-on:
-  push:
-    branches:
-      - 'main'
-  workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#       - 'main'
+#   workflow_dispatch:
 
 defaults:
   run:
