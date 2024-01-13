@@ -1,3 +1,6 @@
+existing_cluster: &existing_cluster
+  existing_cluster_id: 0730-172948-runts698
+
 new_cluster: &new_cluster
   new_cluster:
     policy_id: E05E27B13F0003A0
@@ -11,6 +14,9 @@ new_cluster: &new_cluster
     custom_tags:
       clusterSource: mlops-stack/0.2
 
+cluster: &cluster
+  <<: *existing_cluster
+
 common_permissions: &permissions
   permissions:
     - level: CAN_VIEW
@@ -22,7 +28,7 @@ resources:
       name: ${bundle.target}-databricks-mlops-stacks-write-feature-table-job
       job_clusters:
         - job_cluster_key: write_feature_table_job_cluster
-          <<: *new_cluster
+          <<: *cluster
       tasks:
         - task_key: PickupFeatures
           job_cluster_key: write_feature_table_job_cluster
