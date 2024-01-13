@@ -26,12 +26,13 @@ resources:
   jobs:
     write_feature_table_job:
       name: ${bundle.target}-databricks-mlops-stacks-write-feature-table-job
-      job_clusters:
-        - job_cluster_key: write_feature_table_job_cluster
-          <<: *cluster
+      # job_clusters:
+      #   - job_cluster_key: write_feature_table_job_cluster
+      #     <<: *cluster
       tasks:
         - task_key: PickupFeatures
-          job_cluster_key: write_feature_table_job_cluster
+          # job_cluster_key: write_feature_table_job_cluster
+          <<: *cluster
           notebook_task:
             notebook_path: ../feature_engineering/notebooks/GenerateAndWriteFeatures.py
             base_parameters:
@@ -47,7 +48,8 @@ resources:
               # git source information of current ML asset deployment. It will be persisted as part of the workflow run
               git_source_info: url:${bundle.git.origin_url}; branch:${bundle.git.branch}; commit:${bundle.git.commit}
         - task_key: DropoffFeatures
-          job_cluster_key: write_feature_table_job_cluster
+          # job_cluster_key: write_feature_table_job_cluster
+          <<: *cluster
           notebook_task:
             notebook_path: ../feature_engineering/notebooks/GenerateAndWriteFeatures.py
             base_parameters:
