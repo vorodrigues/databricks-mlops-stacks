@@ -1,5 +1,5 @@
 existing_cluster: &existing_cluster
-  existing_cluster_id: 0730-172948-runts698
+  existing_cluster_id: 0113-004130-ams3n11w
 
 new_cluster: &new_cluster
   new_cluster:
