@@ -26,7 +26,7 @@ targets:
     default: true
     workspace:
       # TODO: add dev workspace URL
-      host:
+      host: https://e2-demo-west.cloud.databricks.com/
 
   staging:
     workspace:
