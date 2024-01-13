@@ -42,17 +42,16 @@
     git checkout -b dev
     ```
     - [Generate Databricks PATs for STG and PRD environments](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-    - Create GitHub repository secrets
-        - STAGING_WORKSPACE_TOKEN
-        - PROD_WORKSPACE_TOKEN
+    - [Generate GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
     - Within the GitHub repository navigate to Settings > Secrets and variables > Actions
     - To run the GitHub actions workflows we require the following GitHub actions secrets:
         - `STAGING_WORKSPACE_TOKEN`
         - `PROD_WORKSPACE_TOKEN`
+        - `GH_TOKEN`
 
 
 
-
+-------------------
 
 
 
