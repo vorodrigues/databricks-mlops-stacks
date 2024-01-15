@@ -54,7 +54,6 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
 
 1. Setup GitHub repository
     - Create a new remote repository
-    - Rename `master` branch to `main`
     - Install GIT from https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
     - Initialize your local repository from the project directory
     ```
