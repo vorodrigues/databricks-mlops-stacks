@@ -1,4 +1,29 @@
-## Set up
+# Databricks MLOps Stacks
+
+> **_NOTE:_**  This feature is in [public preview](https://docs.databricks.com/release-notes/release-types.html).
+
+This repo provides a customizable stack for starting new ML projects
+on Databricks that follow production best-practices out of the box.
+
+Using Databricks MLOps Stacks, data scientists can quickly get started iterating on ML code for new projects while ops engineers set up CI/CD and ML assets
+management, with an easy transition to production. You can also use MLOps Stacks as a building block in automation for creating new data science projects with production-grade CI/CD pre-configured.
+
+An ML solution comprises data, code, and models. These assets need to be developed, validated (staging), and deployed (production). In this repository, we use the notion of dev, staging, and prod to represent the execution
+environments of each stage. 
+
+An instantiated project from MLOps Stacks contains an ML pipeline with CI/CD workflows to test and deploy automated model training and batch inference jobs across your dev, staging, and prod Databricks workspaces. 
+
+<img src="doc-images/mlops-stack-summary.png">
+
+Data scientists can iterate on ML code and file pull requests (PRs). This will trigger unit tests and integration tests in an isolated staging Databricks workspace. Model training and batch inference jobs in staging will immediately update to run the latest code when a PR is merged into main. After merging a PR into main, you can cut a new release branch as part of your regularly scheduled release process to promote ML code changes to production.
+
+---
+
+# Process
+
+---
+
+# Set up
 
 1. Install Python from https://www.anaconda.com (3.8+ / tested on 3.9.12)
 
