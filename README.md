@@ -74,3 +74,12 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
         - `STAGING_WORKSPACE_TOKEN`
         - `PROD_WORKSPACE_TOKEN`
         - `GH_TOKEN`
+
+---
+
+# Customizations
+
+- Compute definitions (all-purpose cluster, cluster policy)
+- Schedule set to pause
+- Catalog and schema variables
+- Disabled comments on databricks-mlops-stacks-bundle-ci.yml
