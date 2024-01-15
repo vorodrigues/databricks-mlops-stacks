@@ -1,5 +1,6 @@
 # Databricks MLOps Stacks
 
+> **_NOTE:_**  This repository is based on https://github.com/databricks/mlops-stacks<br>
 > **_NOTE:_**  This feature is in [public preview](https://docs.databricks.com/release-notes/release-types.html).
 
 This repo provides a customizable stack for starting new ML projects
@@ -20,6 +21,34 @@ An instantiated project from MLOps Stacks contains an ML pipeline with CI/CD wor
 <img src="https://github.com/databricks/mlops-stacks/blob/main/doc-images/mlops-stack-summary.png?raw=true">
 
 Data scientists can iterate on ML code and file pull requests (PRs). This will trigger unit tests and integration tests in an isolated staging Databricks workspace. Model training and batch inference jobs in staging will immediately update to run the latest code when a PR is merged into main. After merging a PR into main, you can cut a new release branch as part of your regularly scheduled release process to promote ML code changes to production.
+
+---
+
+# Step by Step
+
+- **Development**
+    1. Modify code in `dev` branch
+<br><br>
+
+- **CI pipeline**
+    1. Commit changes to `remote` repository and open a PR `main` < `dev`
+        - PR will trigger the CI pipeline
+            - Assets will be deployed to `TEST` environment
+            - Execute unit and integration tests
+    1. Wait for tests to complete and approve PR
+<br><br>
+
+- **CD pipeline**
+    1. Open a PR `release` < `main`
+        - PR will trigger the CD pipeline
+            - Assets will be deployed to `STAGING` environment
+    1. Wait for tests to complete and approve PR
+        - Assets will be deployed to `PROD`
+    1. Wait for assets to be deployed
+<br><br>
+
+- **Production**
+    1. Execute jobs in `PROD`
 
 ---
 
@@ -83,3 +112,4 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
 - Schedule set to pause
 - Catalog and schema variables
 - Disabled comments on databricks-mlops-stacks-bundle-ci.yml
+- Added trigger conditions to CI pipeline
