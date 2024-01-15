@@ -43,7 +43,8 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
         - PR will trigger the CD pipeline
             - Assets will be deployed to `STAGING` environment
     1. Wait for tests to complete and approve PR
-        - Assets will be deployed to `PROD`
+        - Approval will trigger the CD pipeline
+            - Assets will be deployed to `PROD`
     1. Wait for assets to be deployed
 <br><br>
 
