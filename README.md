@@ -1,6 +1,6 @@
 # Databricks MLOps Stacks
 
-> **_NOTE:_**  This repository is based on https://github.com/databricks/mlops-stacks
+> **_NOTE:_**  This repository is based on https://github.com/databricks/mlops-stacks<br>
 > **_NOTE:_**  This feature is in [public preview](https://docs.databricks.com/release-notes/release-types.html).
 
 This repo provides a customizable stack for starting new ML projects
