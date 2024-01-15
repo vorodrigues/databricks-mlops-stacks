@@ -113,3 +113,4 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
 - Schedule set to pause
 - Catalog and schema variables
 - Disabled comments on databricks-mlops-stacks-bundle-ci.yml
+- Added trigger conditions to CI pipeline
