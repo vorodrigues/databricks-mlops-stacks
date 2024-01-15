@@ -1,5 +1,6 @@
 # Databricks MLOps Stacks
 
+> **_NOTE:_**  This repository is based on https://github.com/databricks/mlops-stacks
 > **_NOTE:_**  This feature is in [public preview](https://docs.databricks.com/release-notes/release-types.html).
 
 This repo provides a customizable stack for starting new ML projects
@@ -20,6 +21,24 @@ An instantiated project from MLOps Stacks contains an ML pipeline with CI/CD wor
 <img src="https://github.com/databricks/mlops-stacks/blob/main/doc-images/mlops-stack-summary.png?raw=true">
 
 Data scientists can iterate on ML code and file pull requests (PRs). This will trigger unit tests and integration tests in an isolated staging Databricks workspace. Model training and batch inference jobs in staging will immediately update to run the latest code when a PR is merged into main. After merging a PR into main, you can cut a new release branch as part of your regularly scheduled release process to promote ML code changes to production.
+
+---
+
+# Step by Step
+
+1. Modify code in `dev` branch
+
+1. Commit changes to `remote` repository and open a PR `main` < `dev`
+
+1. Wait for tests to complete and approve PR
+
+1. Open a PR `release` < `main`
+
+1. Wait for tests to complete and approve PR
+
+1. Wait for assets to be deployed
+
+1. Execute jobs in `PROD`
 
 ---
 
