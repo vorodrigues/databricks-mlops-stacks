@@ -47,7 +47,7 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
 
 1. Setup MLOps Stacks project
     - Init project
-    `databricks bundle init mlops-stacks`
+    ```databricks bundle init mlops-stacks```
     - Follow on-screen instructions
 
 1. Setup GitHub repository
