@@ -26,19 +26,30 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
 
 # Step by Step
 
-1. Modify code in `dev` branch
+- **Development**
+    1. Modify code in `dev` branch
+<br><br>
 
-1. Commit changes to `remote` repository and open a PR `main` < `dev`
+- **CI pipeline**
+    1. Commit changes to `remote` repository and open a PR `main` < `dev`
+        - PR will trigger the CI pipeline
+            - Assets will be deployed to `TEST` environment
+            - Execute unit and integration tests
+    1. Wait for tests to complete and approve PR
+<br><br>
 
-1. Wait for tests to complete and approve PR
+- **CD pipeline**
+    1. Open a PR `release` < `main`
+        - PR will trigger the CD pipeline
+            - Assets will be deployed to `STAGING` environment
+            - Execute unit and integration tests
+    1. Wait for tests to complete and approve PR
+        - This will trigger deployment to `PROD`
+    1. Wait for assets to be deployed
+<br><br>
 
-1. Open a PR `release` < `main`
-
-1. Wait for tests to complete and approve PR
-
-1. Wait for assets to be deployed
-
-1. Execute jobs in `PROD`
+- **Production**
+    1. Execute jobs in `PROD`
 
 ---
 
