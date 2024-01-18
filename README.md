@@ -85,13 +85,13 @@ Data scientists can iterate on ML code and file pull requests (PRs). This will t
     git push origin main
     git checkout -b dev
     ```
-    - [Generate Databricks PATs for STG and PRD environments](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-    - [Generate GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-    - Within the GitHub repository navigate to Settings > Secrets and variables > Actions
-    - To run the GitHub actions workflows we require the following GitHub actions secrets:
+    - [Generate Databricks PATs for STAGING and PROD environments](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+    - Within the GitHub repository, navigate to Settings > Secrets and variables > Actions and setup the following secrets:
         - `STAGING_WORKSPACE_TOKEN`
         - `PROD_WORKSPACE_TOKEN`
-        - `GH_TOKEN`
+
+1. Setup Inferene Input table
+    - Follow steps on `./deployment/batch_inference/README.md`
 
 ---
 
